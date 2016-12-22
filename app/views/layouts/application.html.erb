@@ -7,8 +7,20 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+
+  	<header>
+  		<nav>
+  			<ul>
+  				<li><%= link_to "Inicio", root_path %></li>
+  				<li>Diseño</li>
+  				<li>Programación</li>
+  				<li>Tecnología</li>
+  			</ul>
+  		</nav>
+  	</header>
+
     <%= yield %>
+  
   </body>
 </html>
