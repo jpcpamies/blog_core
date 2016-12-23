@@ -19,8 +19,7 @@ class ArticlesController < ApplicationController
 
 	#POST /articles
 	def create
-		@article = Article.new(title: params[:article][:title], 
-													 body: params[:article][:body])
+		@article = Article.new(article_params)
 		if @article.save 
 			redirect_to @article
 		else
@@ -32,14 +31,19 @@ class ArticlesController < ApplicationController
 	def destroy
 		# Primero buscar el artículo que el usuario quiere eliminar
 		@article = Article.find(params[:id])
-		# Segundo lo destruimos
+		# Segundo eliminar el objeto de la base de datos
 		@article.destroy
 		# Redirigir a la lista de artículos
 		redirect_to articles_path
 
 	end
 
+	private
 
+	def article_params
+		# Aquí estoy diciendo donde no hay problema que el usuario mande datos para estos campos 
+		params.require(:article).permit(:title,:body)
+	end
 
 
 
