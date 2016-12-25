@@ -1,3 +1,7 @@
+<!-- Declaro una variable local "name" que tomaré de las vistas -->
+<!-- Creo un valor defoult para la variable, que diece que si la variable name no esté definida entonces le pone "crear" -->
+<% name ||= "Crear" %> 
+<h1><%= name %> artículo</h1>
 <%= form_for(@article) do |f| %>
 	<% @article.errors.full_messages.each do |message| %>
 		<div>
