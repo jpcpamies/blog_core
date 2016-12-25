@@ -43,6 +43,19 @@ class ArticlesController < ApplicationController
 		redirect_to articles_path
 	end
 
+	#PUT /articles/:id
+	def update
+		# Encuentra el registro por su id
+		@article = Article.find(params[:id])
+		# Si el artcículo se guarda redirige al artículo,
+		if @article.update(article_params)
+			redirect_to @article
+		else
+			# si no redirige a la acción edit
+			render :edit
+		end
+	end
+
 	private
 
 	def article_params
