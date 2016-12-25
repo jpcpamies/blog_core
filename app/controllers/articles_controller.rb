@@ -8,13 +8,19 @@ class ArticlesController < ApplicationController
 
 	#GET /articles/:id
 	def show
-		# Encuentra un registro por su id
+		# Encuentra el registro por su id
 		@article = Article.find(params[:id])
 	end
 
 	#GET /articles/new
 	def new
 		@article = Article.new
+	end
+
+	#GET /articles/new
+	def edit
+		# Encuentra el registro por su id
+		@article = Article.find(params[:id])
 	end
 
 	#POST /articles
@@ -27,7 +33,7 @@ class ArticlesController < ApplicationController
 		end
 	end
 
-	#GET /articles/new
+	#DELETE /articles/:id
 	def destroy
 		# Primero buscar el artículo que el usuario quiere eliminar
 		@article = Article.find(params[:id])
@@ -35,7 +41,6 @@ class ArticlesController < ApplicationController
 		@article.destroy
 		# Redirigir a la lista de artículos
 		redirect_to articles_path
-
 	end
 
 	private
