@@ -2,7 +2,9 @@ class ArticlesController < ApplicationController
 	# Esto funciona con el método privado before_action (ahora comentado)
 	# before_action :validate_user, except: [:show, :index]
 	# Utilizando el método helper de Devise para hacer lo mismo que la línea de código anterir. Sólo que con esta no hace falta el método privado del final de la página
-	before_action :authenticate_user!
+	# Se le puede añadir un hash de opciones para que solo valide en las acciones que quieras. 
+	# Si añado el except: lo va a validar siempre con la excepción de lo de dentro de los []
+	before_action :authenticate_user!, except: [:show, :index]
 
 	#GET /articles
 	def index
