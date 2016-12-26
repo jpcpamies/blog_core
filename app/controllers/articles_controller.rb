@@ -19,6 +19,8 @@ class ArticlesController < ApplicationController
 		# Encuentra el registro por su id
 		# Ahora el find paramas id que se repetía en esta acción y otras se ha pasado a un before_action
 		# @article = Article.find(params[:id])
+
+		@article.update_visits_count
 	end
 
 	#GET /articles/new
