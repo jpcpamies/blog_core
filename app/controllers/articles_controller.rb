@@ -5,6 +5,8 @@ class ArticlesController < ApplicationController
 	# Se le puede añadir un hash de opciones para que solo valide en las acciones que quieras. 
 	# Si añado el except: lo va a validar siempre con la excepción de lo de dentro de los []
 	before_action :authenticate_user!, except: [:show, :index]
+	# Todas las acciones donde había un params id lo vamos a mover a un before action. Y le dacimos excepto las acciones donde no usamos lo de paramas id
+	before_action :set_article, except: [:index, :new, :create]
 
 	#GET /articles
 	def index
@@ -15,7 +17,8 @@ class ArticlesController < ApplicationController
 	#GET /articles/:id
 	def show
 		# Encuentra el registro por su id
-		@article = Article.find(params[:id])
+		# Ahora el find paramas id que se repetía en esta acción y otras se ha pasado a un before_action
+		# @article = Article.find(params[:id])
 	end
 
 	#GET /articles/new
@@ -26,7 +29,8 @@ class ArticlesController < ApplicationController
 	#GET /articles/new
 	def edit
 		# Encuentra el registro por su id
-		@article = Article.find(params[:id])
+		# Ahora el find paramas id que se repetía en esta acción y otras se ha pasado a un before_action
+		# @article = Article.find(params[:id])
 	end
 
 	#POST /articles
@@ -42,7 +46,9 @@ class ArticlesController < ApplicationController
 	#DELETE /articles/:id
 	def destroy
 		# Primero buscar el artículo que el usuario quiere eliminar
-		@article = Article.find(params[:id])
+		# Ahora el find paramas id que se repetía en esta acción y otras se ha pasado a un before_action
+		# @article = Article.find(params[:id])
+
 		# Segundo eliminar el objeto de la base de datos
 		@article.destroy
 		# Redirigir a la lista de artículos
@@ -52,7 +58,10 @@ class ArticlesController < ApplicationController
 	#PUT /articles/:id
 	def update
 		# Encuentra el registro por su id
-		@article = Article.find(params[:id])
+		# Ahora el find paramas id que se repetía en esta acción y otras se ha pasado a un before_action
+		# @article = Article.find(params[:id])
+
+
 		# Si el artcículo se guarda redirige al artículo,
 		if @article.update(article_params)
 			redirect_to @article
@@ -63,6 +72,11 @@ class ArticlesController < ApplicationController
 	end
 
 	private
+
+	# Esto permite borrar todas las veces que se repetía la misma línea de código
+	def set_article
+		@article = Article.find(params[:id])
+	end
 
 	# Esto funciona junto al before_action del principio para requerir acciones antes o después de ciertas acciones
 	# def validate_user
