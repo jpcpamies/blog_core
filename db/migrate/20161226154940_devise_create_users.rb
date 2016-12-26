@@ -30,6 +30,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
+      # Esto está añadido
+      # Aquí tendré que añadir también el campo nombre de usuario, tipo jpcpamies
+      # para cuando quiera mostrar el nombre de usuario en el nav y cosas por el estilo. 
       t.string :name
       t.string :permission_level
 
