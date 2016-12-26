@@ -27,6 +27,9 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Esta es la única versión de devise que funciona con Rails 5 hasta la fecha
+gem 'devise', github: 'plataformatec/devise'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

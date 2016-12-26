@@ -16,9 +16,17 @@
   				<li>Diseño</li>
   				<li>Programación</li>
   				<li>Tecnología</li>
+          <% if user_signed_in? %>
+            <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
+          <% end %>
   			</ul>
   		</nav>
   	</header>
+    <!-- Mensajes flash Devise -->
+    <div>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
 
     <%= yield %>
   
