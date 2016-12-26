@@ -1,4 +1,9 @@
 <h1><%= @article.title %></h1>
+<!-- Esta condicion es para que en los artículos que aún no había user asignado no de error. Pero esto no lo necesito para futuros desarrollos.  -->
+<% unless @article.user.nil? %>
+	Escrito por: <%= @article.user.email %>
+<% end %>
+
 <div><%= @article.body %></div>
 <div>
 	<%= link_to "Editar", edit_article_path(@article) %>
