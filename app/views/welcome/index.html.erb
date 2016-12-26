@@ -1,1 +1,9 @@
-<h1>Bienvenido <%= current_user.email %></h1>
+
+<% if user_signed_in? %>
+	<h1>Bienvenido <%= current_user.email %></h1>
+<% else %>
+	<%= link_to "Iniciar sesión", new_user_session_path %>
+	<%= link_to "Crear cuenta", new_user_registration_path %>
+<% end %>
+	
+
