@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+	before_action :validate_user, except: [:show, :index]
 
 	#GET /articles
 	def index
@@ -57,6 +58,10 @@ class ArticlesController < ApplicationController
 	end
 
 	private
+
+	def validate_user
+		redirect_to new_user_session_path, notice: "Necesitas iniciar sesión"
+	end
 
 	def article_params
 		# Aquí estoy diciendo donde no hay problema que el usuario mande datos para estos campos 
