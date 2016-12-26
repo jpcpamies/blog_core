@@ -1,5 +1,8 @@
 class ArticlesController < ApplicationController
-	before_action :validate_user, except: [:show, :index]
+	# Esto funciona con el método privado before_action (ahora comentado)
+	# before_action :validate_user, except: [:show, :index]
+	# Utilizando el método helper de Devise para hacer lo mismo que la línea de código anterir. Sólo que con esta no hace falta el método privado del final de la página
+	before_action :authenticate_user!
 
 	#GET /articles
 	def index
@@ -59,9 +62,10 @@ class ArticlesController < ApplicationController
 
 	private
 
-	def validate_user
-		redirect_to new_user_session_path, notice: "Necesitas iniciar sesión"
-	end
+	# Esto funciona junto al before_action del principio para requerir acciones antes o después de ciertas acciones
+	# def validate_user
+	# 	redirect_to new_user_session_path, notice: "Necesitas iniciar sesión"
+	# end
 
 	def article_params
 		# Aquí estoy diciendo donde no hay problema que el usuario mande datos para estos campos 
