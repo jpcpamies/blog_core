@@ -39,13 +39,11 @@ class ArticlesController < ApplicationController
 	#POST /articles
 	def create
 		@article = current_user.articles.new(article_params)
-		
-		raise params.to_yaml
-		# if @article.save 
-		# 	redirect_to @article
-		# else
-		#  	render :new
-		# end
+		if @article.save 
+			redirect_to @article
+		else
+		 	render :new
+		end
 	end
 
 	#DELETE /articles/:id
@@ -90,7 +88,7 @@ class ArticlesController < ApplicationController
 
 	def article_params
 		# Aquí estoy diciendo donde no hay problema que el usuario mande datos para estos campos 
-		params.require(:article).permit(:title,:body,:cover)
+		params.require(:article).permit(:title,:body,:cover,:categories)
 	end
 
 
