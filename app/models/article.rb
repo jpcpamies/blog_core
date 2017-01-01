@@ -1,11 +1,12 @@
 class Article < ApplicationRecord
 	belongs_to :user
+	has_many :has_categories
+	has_many :categories, through: :has_categories
 
-	
 	validates :title, presence: true, uniqueness: true
 	validates :body, presence: true, length: { minimum: 20 }
 	# Esto setea la cuenta de visitas a 0. Lo hacemos con un before_ ya que no lo seteamos en la bbdd
-	before_save :set_visits_count
+	before_create :set_visits_count
 	# call back del modelo que manda llamar :save_catagories cuando el artículo se crea. Es ahí donde tenemos que crear los registros HasCategories.
 	after_create :save_categories
 
