@@ -17,6 +17,7 @@ HasCategory
 2o Relacionar las categorías con los artículos y crear las vistas necesarias.
 Tenemos las dos tablas que se relacionan, la de articles y categories. De manera que cuando hagamos clic en Diseño se deben ver todos los artículos de diseño.
 
+LOGICA DE LA REALCIÓN 
 Categoría tiene muchos artículos
 Artículo puede perteneces a muchas categorías
 Muchos : Muchos
@@ -37,6 +38,9 @@ HasCategory
 HasCategory
 	Como programar en Rails y UX
 	Tecnología
+
+CREANDO LA RELACIÓN
+1o Crear el modelo de la tabla HasCategory con referencia a las tablas article y category 
 
 
 
