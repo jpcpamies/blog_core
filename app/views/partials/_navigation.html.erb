@@ -5,7 +5,7 @@
 			<li><%= link_to "Artículos", articles_path %></li>
 			<li><%= link_to "Nuevo Artículo", new_article_path %></li>
 			<% @categories.each do |category| %>
-				<li><%= category.name %></li> 
+				<li><%= link_to category.name, category %></li> 
 			<% end %>
       <% if user_signed_in? %>
         <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
