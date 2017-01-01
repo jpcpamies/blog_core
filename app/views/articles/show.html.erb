@@ -7,5 +7,10 @@
 	<% end %>
 </div>
 <div>Visitas: <%= @article.visits_count %></div>
+<div>
+	<% @article.categories.each do |category| %>
+		<%= link_to category.name, category %> 
+	<% end %> 
+</div>
 <div><%= @article.body %></div>
 <div><%= link_to "Editar", edit_article_path(@article) %></div>
