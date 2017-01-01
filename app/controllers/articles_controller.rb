@@ -39,11 +39,13 @@ class ArticlesController < ApplicationController
 	#POST /articles
 	def create
 		@article = current_user.articles.new(article_params)
-		if @article.save 
-			redirect_to @article
-		else
-		 	render :new
-		end
+		
+		raise params.to_yaml
+		# if @article.save 
+		# 	redirect_to @article
+		# else
+		#  	render :new
+		# end
 	end
 
 	#DELETE /articles/:id

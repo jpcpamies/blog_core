@@ -13,11 +13,5 @@
 
   <div><%= f.text_field :name %></div>
   <div><%= f.color_field :color %></div>
-  <div>
-    <%= f.label :categorias %>
-    <% @categories.each do |category| %>
-      <div><%= check_box_tag "categories[]", category.id %> <%= category.name %></div>
-    <% end %>
-  </div>
   <div class="actions"><%= f.submit %></div>
 <% end %>
