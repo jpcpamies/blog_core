@@ -1,0 +1,23 @@
+body {
+	margin: 0;
+}
+
+.mainNav {
+	padding: 1em;
+	background-color: red;
+}
+
+.mainNav ul {
+	display: flex;
+	justify-content: space-around;
+}
+
+.mainNav ul li {
+	list-style: none;
+	color: white;
+}
+
+.mainNav ul li a {
+	color: white;
+	text-decoration: none;
+}
