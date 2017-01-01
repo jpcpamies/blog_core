@@ -1,0 +1,9 @@
+1o: Crear las categorias.
+Esta es la estrucutura que tiene:
+
+Category
+	name
+	color
+
+
+2o Relacionar las categorías con los artículos
