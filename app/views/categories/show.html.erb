@@ -4,7 +4,10 @@
   <strong>Name:</strong>
   <%= @category.name %>
 </p>
-
+<% @category.articles.each do |article| %>
+	<h2><%= link_to article.title, article %></h2>
+	<div><%= article.body %> - <%= link_to "Eliminar", article, method: :delete %></div>
+<% end %>
 <p>
   <strong>Color:</strong>
   <%= @category.color %>
