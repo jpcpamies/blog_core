@@ -5,5 +5,39 @@ Category
 	name
 	color
 
+Article
+	title
+	body
 
-2o Relacionar las categorías con los artículos
+HasCategory
+	category
+	article
+
+
+2o Relacionar las categorías con los artículos y crear las vistas necesarias.
+Tenemos las dos tablas que se relacionan, la de articles y categories. De manera que cuando hagamos clic en Diseño se deben ver todos los artículos de diseño.
+
+Categoría tiene muchos artículos
+Artículo puede perteneces a muchas categorías
+Muchos : Muchos
+
+Lo que se hace para logara una relación muchos a muchos es crear una tabla intermedia, en este caso la llamo HasCategory
+
+Ejemplo de como funciona la relación muchos a muchos entre las tres tablas. 
+
+Como programar en Rails y UX - article
+Diseño - category
+Tecnología - category
+
+Creo un registros a la table HasCategory para relacionarlo con las otras dos tablas. 
+
+HasCategory
+	Como programar en Rails y UX
+	Diseño
+HasCategory
+	Como programar en Rails y UX
+	Tecnología
+
+
+
+
