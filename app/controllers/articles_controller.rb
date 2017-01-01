@@ -87,7 +87,7 @@ class ArticlesController < ApplicationController
 
 	def article_params
 		# Aquí estoy diciendo donde no hay problema que el usuario mande datos para estos campos 
-		params.require(:article).permit(:title,:body)
+		params.require(:article).permit(:title,:body,:cover)
 	end
 
 
