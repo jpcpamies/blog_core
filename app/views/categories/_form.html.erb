@@ -13,6 +13,11 @@
 
   <div><%= f.text_field :name %></div>
   <div><%= f.color_field :color %></div>
-  
+  <div>
+    <%= f.label :categorias %>
+    <% @categories.each do |category| %>
+      <%= category.name %>
+    <% end %>
+  </div>
   <div class="actions"><%= f.submit %></div>
 <% end %>
