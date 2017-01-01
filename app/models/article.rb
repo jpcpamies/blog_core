@@ -5,6 +5,9 @@ class Article < ApplicationRecord
 	# Esto setea la cuenta de visitas a 0. Lo hacemos con un before_ ya que no lo seteamos en la bbdd
 	before_create :set_visits_count
 
+	has_attached_file :cover, styles: { medium: "300x300>", thumb: "100x100>" }
+	validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+
 	# Hace que aumente el número de visitas en uno cada vez que se carga el artículo
 	def update_visits_count
 		self.update(visits_count: self.visits_count + 1)

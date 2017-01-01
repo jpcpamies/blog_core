@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Esta es la única versión de devise que funciona con Rails 5 hasta la fecha
 gem 'devise', github: 'plataformatec/devise'
+gem 'paperclip'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
