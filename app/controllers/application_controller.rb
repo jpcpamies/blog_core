@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   protected
 
   	def authenticate_editor!
+      # Redirigelo al home a menos que esté logueado y sea un editor
   		redirect_to root_path unless user_signed_in? && current_user.is_editor?
   	end
 
