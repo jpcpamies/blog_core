@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :articles
 
-  include PermissionsConcern 
-  
+  include PermissionsConcern
+
 end
