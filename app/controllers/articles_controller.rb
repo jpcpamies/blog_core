@@ -8,11 +8,12 @@ class ArticlesController < ApplicationController
 	# Todas las acciones donde había un params id lo vamos a mover a un before action. Y le dacimos excepto las acciones donde no usamos lo de paramas id
 	before_action :set_article, except: [:index, :new, :create]
 	before_action :authenticate_editor!, only: [:new,:create,:update]
+	before_action :authenticate_admin!, only: [:destroy]
 
 	#GET /articles
 	def index
 		# Obtienen todos los registros
-		@articles = Article.all
+		@articles = Article.publicados
 	end
 
 	#GET /articles/:id

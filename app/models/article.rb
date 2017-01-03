@@ -15,6 +15,10 @@ class Article < ApplicationRecord
 	has_attached_file :cover, styles: { medium: "300x300>", thumb: "100x100>" }
 	validates_attachment_content_type :cover, content_type: /\Aimage\/.*\z/
 	
+	# Definiendo scopes para definir diferentes grupos de la tabla.
+	scope :publicados, ->{ where(state: "published") } 
+	scope :ultimos, ->{ order("created_at DESC").limit(10) }
+
 	# Agragando el elemento categories dentro del objeto article.
 	# Custom setter, permite asignar valor al atributo de un objeto.
 	def categories=(valeu)
