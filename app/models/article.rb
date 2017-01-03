@@ -1,4 +1,5 @@
 class Article < ApplicationRecord
+	include AASM
 	belongs_to :user
 	has_many :has_categories
 	has_many :categories, through: :has_categories
@@ -14,8 +15,8 @@ class Article < ApplicationRecord
 	has_attached_file :cover, styles: { medium: "300x300>", thumb: "100x100>" }
 	validates_attachment_content_type :cover, content_type: /\Aimage\/.*\z/
 	
-	# Agragando el elemento categories dentro del objeto article
-	# Custom setter, permite asignar valor al atributo de un objeto
+	# Agragando el elemento categories dentro del objeto article.
+	# Custom setter, permite asignar valor al atributo de un objeto.
 	def categories=(valeu)
 		@categories = valeu
 	end
@@ -25,6 +26,23 @@ class Article < ApplicationRecord
 		self.update(visits_count: self.visits_count + 1)
 	end
 
+	aasm column: "state" do
+		# Aquí defino los estados en los que puede estar un article.
+		state :in_draft, initial: true
+		state :published
+
+		# Aquí defino las transiciones posibles para pasar de un estado a otro.
+		event :publish do
+			# transitions from: :in_draft, to: :published
+			transitions from: [:in_draft], to: [:published]
+		end 
+
+		event :unpublish do
+			# transitions from: :published, to: :in_draft
+			transitions from: [:published], to: [:in_draft]
+		end 
+
+	end
 
 	private
 
