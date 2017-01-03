@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   devise_for :users
   # get 'welcome/index'
   root 'welcome#index'
-
   resources :articles
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # Creando ruta para el Dashboard
+  # Le estoy diciendo que la ruta /dashboard el que va a responder será el controlador welcome#dashboard
+  get '/dashboard', to: 'welcome#dashboard'
+
 end
