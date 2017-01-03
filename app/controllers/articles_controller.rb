@@ -13,7 +13,7 @@ class ArticlesController < ApplicationController
 	#GET /articles
 	def index
 		# Obtienen todos los registros
-		@articles = Article.publicados
+		@articles = Article.paginate(params[:page])publicados.ultimos
 	end
 
 	#GET /articles/:id
