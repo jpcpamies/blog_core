@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
 	# Todas las acciones donde había un params id lo vamos a mover a un before action. Y le dacimos excepto las acciones donde no usamos lo de paramas id
 	before_action :set_article, except: [:index, :new, :create]
 	before_action :authenticate_editor!, only: [:new,:create,:update]
-	before_action :authenticate_admin!, only: [:destroy]
+	before_action :authenticate_admin!, only: [:destroy,:publish]
 
 	#GET /articles
 	def index
@@ -75,6 +75,11 @@ class ArticlesController < ApplicationController
 			# si no redirige a la acción edit
 			render :edit
 		end
+	end
+
+	def publish
+		@article.publish!
+		redirect_to @article
 	end
 
 	private
