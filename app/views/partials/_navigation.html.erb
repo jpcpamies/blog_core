@@ -2,6 +2,7 @@
 	<nav class="mainNav">
 		<ul>
 			<li><%= link_to "Inicio", root_path %></li>
+			<li><%= link_to "Dashboard", dashboard_path %></li>
 			<li><%= link_to "Artículos", articles_path %></li>
 			<li><%= link_to "Nuevo Artículo", new_article_path %></li>
 			<% @categories.each do |category| %>

@@ -17,7 +17,7 @@ class Article < ApplicationRecord
 	
 	# Definiendo scopes para definir diferentes grupos de la tabla.
 	scope :publicados, ->{ where(state: "published") } 
-	scope :ultimos, ->{ order("created_at DESC").limit(10) }
+	scope :ultimos, ->{ order("created_at DESC") }
 
 	# Agragando el elemento categories dentro del objeto article.
 	# Custom setter, permite asignar valor al atributo de un objeto.

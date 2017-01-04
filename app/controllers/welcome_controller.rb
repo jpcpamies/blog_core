@@ -5,6 +5,6 @@ class WelcomeController < ApplicationController
   end
 
   def dashboard
-  	@articles = Article.all
+  	@articles = Article.all.ultimos
   end
 end
