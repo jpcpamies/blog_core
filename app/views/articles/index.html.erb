@@ -1,7 +1,9 @@
 <div class="wrapper">
-	<% @articles.each do |article| %>
-		<h2><%= link_to article.title, article %></h2>
-		<div><%= article.body %> - <%= link_to "Eliminar", article, method: :delete %></div>
-	<% end %>
+<!-- Hace render de la colección articles. Normalmente al método render le pasamos parciales, pero esta vez le pasamos una colección, por eso lleva el @.  El método render cuando le pasamos un arreglo de un modelo de la bbdd va a iterar sobre esa colección y va a hacer el render del aprcial por cada uno de los elementos que hay en la colección.-->
+<%= render @articles %>
+	<!-- Ya no necesito el ciclo each. -->
+	<!-- <% @articles.each do |article| %>
+		Me he llevado el contenido del ciclo a un parcial 
+	<% end %> -->
 	<%= will_paginate @posts %>
 </div>
