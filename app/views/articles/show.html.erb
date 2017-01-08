@@ -1,7 +1,7 @@
-<%= article_cover @article.cover.url(:medium), class:"laClassQueQuiera" %>
+<!-- <%= article_cover @article.cover.url(:medium), class:"laClassQueQuiera" %>  -->
 <!-- Esto ahora está comentado porque lo he encapsulado en un helper, para poder reusarlo en las vistas que quiera pasandole parámetros para hacerlo dinámico. En vez de esto llamo al método helper en la línea de código superior. -->
-<!-- <header style="background:url(<%= @article.cover.url(:medium)%>);background-size:cover;" class="background-cover" >
-</header> -->
+<header style="background:url(<%= @article.cover.url(:medium)%>);background-size:cover;" class="background-cover" >
+</header>
 
 <div class="wrapper">
 	<h1><%= @article.title %></h1>
@@ -23,4 +23,5 @@
 	</div>
 	<div><%= @article.body.html_safe %></div>
 	<div><%= link_to "Editar", edit_article_path(@article) %></div>
+	<%= render 'disqus' %>
 </div>
