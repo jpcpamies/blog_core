@@ -2,10 +2,15 @@
 	<p id="notice"><%= notice %></p>
 
 	<h1 style="color:<%= @category.color %>"><%= @category.name %></h1>
-	<% @category.articles.each do |article| %>
+
+	<!-- Este ciclo se ve sustituido por el render de colección que he creado en @article -->
+<!-- 	<% @category.articles.each do |article| %>
 		<h3><%= link_to article.title, article %></h3>
 		<div><%= article.body %> - <%= link_to "Eliminar", article, method: :delete %></div>
-	<% end %>
+	<% end %> -->
+
+	<!-- Lo que el render es de @category.article -->
+	<%= render @category.articles %>
 
 	<%= link_to 'Edit', edit_category_path(@category) %> |
 	<%= link_to 'Back', categories_path %>
