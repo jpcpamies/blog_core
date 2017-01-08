@@ -1,6 +1,8 @@
-<header class="background-cover" style="background:url(<%= @article.cover.url(:medium)%>);background-size:cover;">
-	
-</header>
+<%= article_cover @article.cover.url(:medium), class:"laClassQueQuiera" %>
+<!-- Esto ahora está comentado porque lo he encapsulado en un helper, para poder reusarlo en las vistas que quiera pasandole parámetros para hacerlo dinámico. En vez de esto llamo al método helper en la línea de código superior. -->
+<!-- <header style="background:url(<%= @article.cover.url(:medium)%>);background-size:cover;" class="background-cover" >
+</header> -->
+
 <div class="wrapper">
 	<h1><%= @article.title %></h1>
 
