@@ -86,7 +86,7 @@ class ArticlesController < ApplicationController
 
 	# Esto permite borrar todas las veces que se repetía la misma línea de código
 	def set_article
-		@article = Article.find(params[:id])
+		@article = Article.friendly.find(params[:id])
 	end
 
 	# Esto funciona junto al before_action del principio para requerir acciones antes o después de ciertas acciones
@@ -96,7 +96,7 @@ class ArticlesController < ApplicationController
 
 	def article_params
 		# Aquí estoy diciendo donde no hay problema que el usuario mande datos para estos campos 
-		params.require(:article).permit(:title,:body,:cover,:categories)
+		params.require(:article).permit(:title,:body,:cover,:categories,:slug)
 	end
 
 

@@ -19,6 +19,10 @@ class Article < ApplicationRecord
 	scope :publicados, ->{ where(state: "published") } 
 	scope :ultimos, ->{ order("created_at DESC") }
 
+	# Pertenece a friendly_id
+	extend FriendlyId
+	friendly_id :title, use: :slugged
+
 	# Agragando el elemento categories dentro del objeto article.
 	# Custom setter, permite asignar valor al atributo de un objeto.
 	def categories=(valeu)
