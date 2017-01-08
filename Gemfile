@@ -33,6 +33,7 @@ gem 'paperclip'
 gem 'aasm'
 gem 'will_paginate'
 gem 'trix'
+gem 'friendly_id', '~> 5.1'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
