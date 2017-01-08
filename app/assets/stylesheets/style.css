@@ -26,3 +26,11 @@ body {
 	color: white;
 	text-decoration: none;
 }
+
+.background-cover{
+	background-position: center;
+	background-size: cover;
+	top:0px;
+	width:100%;
+	height:400px;
+}

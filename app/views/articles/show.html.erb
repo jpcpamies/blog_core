@@ -1,6 +1,12 @@
+<header class="background-cover" style="background:url(<%= @article.cover.url(:medium)%>);background-size:cover;">
+	
+</header>
 <div class="wrapper">
 	<h1><%= @article.title %></h1>
-	<div><%= image_tag @article.cover.url(:medium) %></div>
+
+	<!-- Comento eso ya que se imprime la imagen en el header con background cover -->
+	<!-- <div><%= image_tag @article.cover.url(:medium) %></div> -->
+
 	<!-- Esta condicion es para que en los artículos que aún no había user asignado no de error. Pero esto no lo necesito para futuros desarrollos.  -->
 	<div>
 		<% unless @article.user.nil? %>
