@@ -32,6 +32,7 @@ gem 'devise', github: 'plataformatec/devise'
 gem 'paperclip'
 gem 'aasm'
 gem 'will_paginate'
+gem 'trix'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
