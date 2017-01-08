@@ -11,7 +11,9 @@
 
   	<%= render "partials/navigation" %>
     <!-- Mensajes flash Devise -->
-    <div>
+
+    <!-- Aquí se va a mostrar un display none en caso de que no haya un notice o alert -->
+    <div style="<%= "display:none;" if notice.nil? and alert.nil? %>">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     </div>
