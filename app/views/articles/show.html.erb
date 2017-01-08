@@ -13,6 +13,6 @@
 			<%= link_to category.name, category, style:"color: #{category.color};" %> 
 		<% end %> 
 	</div>
-	<div><%= @article.body %></div>
+	<div><%= @article.body.html_safe %></div>
 	<div><%= link_to "Editar", edit_article_path(@article) %></div>
 </div>
