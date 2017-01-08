@@ -1,16 +1,18 @@
-<h1><%= @article.title %></h1>
-<div><%= image_tag @article.cover.url(:medium) %></div>
-<!-- Esta condicion es para que en los artículos que aún no había user asignado no de error. Pero esto no lo necesito para futuros desarrollos.  -->
-<div>
-	<% unless @article.user.nil? %>
-		Escrito por: <%= @article.user.email %>
-	<% end %>
+<div class="wrapper">
+	<h1><%= @article.title %></h1>
+	<div><%= image_tag @article.cover.url(:medium) %></div>
+	<!-- Esta condicion es para que en los artículos que aún no había user asignado no de error. Pero esto no lo necesito para futuros desarrollos.  -->
+	<div>
+		<% unless @article.user.nil? %>
+			Escrito por: <%= @article.user.email %>
+		<% end %>
+	</div>
+	<div>Visitas: <%= @article.visits_count %></div>
+	<div>
+		<% @article.categories.each do |category| %>
+			<%= link_to category.name, category, style:"color: #{category.color};" %> 
+		<% end %> 
+	</div>
+	<div><%= @article.body %></div>
+	<div><%= link_to "Editar", edit_article_path(@article) %></div>
 </div>
-<div>Visitas: <%= @article.visits_count %></div>
-<div>
-	<% @article.categories.each do |category| %>
-		<%= link_to category.name, category, style:"color: #{category.color};" %> 
-	<% end %> 
-</div>
-<div><%= @article.body %></div>
-<div><%= link_to "Editar", edit_article_path(@article) %></div>

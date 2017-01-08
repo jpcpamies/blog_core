@@ -1,19 +1,22 @@
 <!-- Declaro una variable local "name" que tomaré de las vistas -->
 <!-- Creo un valor defoult para la variable, que diece que si la variable name no esté definida entonces le pone "crear" -->
 <% name ||= "Crear" %> 
-<h1><%= name %> artículo</h1>
-<%= form_for(@article) do |f| %>
-	<% @article.errors.full_messages.each do |message| %>
-		<div><%= message %></div>
+<div class="wrapper">
+	<h1><%= name %> artículo</h1>
+	<%= form_for(@article) do |f| %>
+		<% @article.errors.full_messages.each do |message| %>
+			<div><%= message %></div>
+		<% end %>
+		<div><%= f.text_field :title, placeholder: "Título" %></div>
+		<div><%= f.file_field :cover %></div>
+		<!-- <div><%= f.text_area :body, placeholder: "Escribe aquí el artículo" %></div> -->
+		<div><%= f.trix_editor :body %></div>
+		<div>
+		  <%= f.label :categorias %>
+		  <% @categories.each do |category| %>
+		    <div><%= check_box_tag "categories[]", category.id %> <%= category.name %></div>
+		  <% end %>
+		</div>
+		<div><%= f.submit "Guardar" %></div>
 	<% end %>
-	<div><%= f.text_field :title, placeholder: "Título" %></div>
-	<div><%= f.file_field :cover %></div>
-	<div><%= f.text_area :body, placeholder: "Escribe aquí el artículo" %></div>
-	<div>
-	  <%= f.label :categorias %>
-	  <% @categories.each do |category| %>
-	    <div><%= check_box_tag "categories[]", category.id %> <%= category.name %></div>
-	  <% end %>
-	</div>
-	<div><%= f.submit "Guardar" %></div>
-<% end %>
+</div>

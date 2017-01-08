@@ -1,5 +1,7 @@
-<% @articles.each do |article| %>
-	<h2><%= link_to article.title, article %></h2>
-	<div><%= article.body %> - <%= link_to "Eliminar", article, method: :delete %></div>
-<% end %>
-<%= will_paginate @posts %>
+<div class="wrapper">
+	<% @articles.each do |article| %>
+		<h2><%= link_to article.title, article %></h2>
+		<div><%= article.body %> - <%= link_to "Eliminar", article, method: :delete %></div>
+	<% end %>
+	<%= will_paginate @posts %>
+</div>

@@ -2,6 +2,11 @@ body {
 	margin: 0;
 }
 
+.wrapper{
+	max-width: 760px;
+	margin: auto;
+}
+
 .mainNav {
 	padding: 1em;
 	background-color: #40c315;
